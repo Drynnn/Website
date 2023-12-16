@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <title>About</title>
+</head>
+
+<body>
+    <main class="about">
+        <nav class="navbar max-width">
+            <div>
+                <div class="navbar__logo">
+                    <img src="./img/logo.png" alt="website logo">
+                </div>
+                <ul class="navbar__links">
+                    <li class="navbar__link">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="navbar__link active">
+                        <a href="./about.html">About</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./gallery.html">Gallery</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./blog.html">Blog</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar__searchbar">
+                <div class="searchbar__input">
+                    <input type="text" placeholder="Search...">
+                    <img src="./img/search-icon.svg" alt="search icon">
+                </div>
+                <button class="searchbar__btn">
+                    Search
+                </button>
+            </div>
+        </nav>
+        <div class="about__content max-width">
+            <div class="about__introduction">
+                <img src="./img/dryn.jpg" class="about__img" alt="">
+                <h1>About Me</h1>
+                <div class="introduction__box">Greetings! I'm Dryn Manabat, a passionate 20-year-old second-year
+                    Bachelor of Science in Information Technology student based in picturesque Poblaction Este,
+                    Sta.Cruz, Ilocos Sur. Amidst theh world of codes and algorithms, I find solace and inspiration
+                    in the serene beauty of sunrise and sunset.
+                </div>
+            </div>
+            <div class="about__sub-intro">
+                <div>
+                    <h2>Why Sunsets and Sunrises?</h2>
+                    <p>In the fast-paced of world of technology, the tranquility of a sunrise and the vibrancy of a
+                        sunset serve as a reminder to pause, appreciate, and find beauty in simplicity. Through my lens,
+                        I aim to share these moments of stillness and spectacle, inviting you to join me in witnessing
+                        the beauty that unfolds when the day meets the night.
+                    </p>
+                </div>
+                <div>
+                    <h2>Tech Meets Nature</h2>
+                    <p>As a second-year student in Information Technology, I bring a unique blend of technical prowess
+                        and artistic flair to my photography. The precision I apply in coding finds its parallel in
+                        meticulous framing and editing of my photgraphs. It's the intersection of these two worlds that
+                        defines my approach and sets my work apart.
+                    </p>
+                </div>
+                <div>
+                    <h2>Explore with Me</h2>
+                    <p>Join me on this visual journey through the canvas of the sky. Let's explore the interplay of
+                        light and shadow, the hues that paint the horizon, and the moments that make time stand still.
+                        Thank you for being a part of my story.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.querySelector('.searchbar__input input');
+            const searchButton = document.querySelector('.searchbar__btn');
+            const searchResults = document.getElementById('searchResults');
+
+            // Function to perform search
+            function performSearch() {
+                // Get the search input value
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                // Redirect based on search term
+                switch (searchTerm) {
+                    case 'home':
+                        window.location.href = './index.html';
+                        break;
+                    case 'about':
+                        window.location.href = './about.html';
+                        break;
+                    case 'gallery':
+                        window.location.href = './gallery.html';
+                        break;
+                    case 'blog':
+                        window.location.href = './blog.html';
+                        break;
+                    case 'contact':
+                        window.location.href = './contact.html';
+                        break;
+                    case 'facebook':
+                    case 'fb':
+                        window.location.href = 'https://www.facebook.com/dryn.manabat.9';
+                        break;
+                    case 'instagram':
+                    case 'insta':
+                        window.location.href = 'https://instagram.com/cloovvveeerr?igshid=NGVhN2U2NjQ0Yg==';
+                        break;
+                    case 'twitter':
+                    case 'x':
+                        window.location.href = 'https://x.com/cloovvveeerr?t=ZhFD_PQ17trS8VbDJC--HA&s=07';
+                        break;
+                    default:
+                        // TODO: Implement search logic or handle other cases
+                        displayResults("No matching page found for: " + searchTerm);
+                        break;
+                }
+            }
+
+            // Function to display search results
+            function displayResults(results) {
+                // Display results
+                searchResults.innerHTML = results;
+            }
+
+            // Event listener for search button click
+            searchButton.addEventListener('click', performSearch);
+
+            // Event listener for pressing Enter key in the search input
+            searchInput.addEventListener('keyup', function (event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+
+    <div class="page-loader active">
+        <div>
+            <img src="./img/logo.png">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pageLoader = document.querySelector('.page-loader');
+            const request = (secs) => new Promise(resolve => setTimeout(resolve, secs));
+
+            async function removePageLoader() {
+                await request(300)
+                pageLoader.classList.remove('active')
+            }
+            removePageLoader();
+        })
+    </script>
+</body>
+
+</html>

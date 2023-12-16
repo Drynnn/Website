@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <title>Contact</title>
+</head>
+
+<body>
+    <main>
+        <nav class="navbar max-width">
+            <div>
+                <div class="navbar__logo">
+                    <img src="./img/logo.png" alt="website logo">
+                </div>
+                <ul class="navbar__links">
+                    <li class="navbar__link">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./about.html">About</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./gallery.html">Gallery</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./blog.html">Blog</a>
+                    </li>
+                    <li class="navbar__link active">
+                        <a href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar__searchbar">
+                <div class="searchbar__input">
+                    <input type="text" placeholder="Search...">
+                    <img src="./img/search-icon.svg" alt="search icon">
+                </div>
+                <button class="searchbar__btn">
+                    Search
+                </button>
+            </div>
+        </nav>
+        <div class="contact__content">
+            <div class="max-width content__container">
+                <div class="contact__details">
+                    <img src="./img/dryn.jpg" class="contact__img">
+                    <div class="details__social">
+                        <div>
+                            <img src="./img/fb.svg" alt="fb icon">
+                            <a href="https://www.facebook.com/dryn.manabat.9">Dryn Manabat</a>
+                        </div>
+                        <div>
+                            <img src="./img/insta.svg" alt="fb icon">
+                            <a href="https://instagram.com/cloovvveeerr?igshid=NGVhN2U2NjQ0Yg==">@clooovvveeerr</a>
+                        </div>
+                        <div>
+                            <img src="./img/twitter.svg" alt="fb icon">
+                            <a href="https://x.com/cloovvveeerr?t=ZhFD_PQ17trS8VbDJC--HA&s=07">@clooovvveeerr</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__form">
+                    <h1>Get in touch</h1>
+                    <p>Let's start a project together.</p>
+                    <form id="contactForm">
+                        <div class="input-col2">
+                            <div class="input-container">
+                                <span class="input-label">Name</span>
+                                <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                                <div class="input-sub-label">First Name</div>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                                <div class="input-sub-label">Last Name</div>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <span class="input-label">Email</span>
+                            <input type="email" name="email" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="input-container">
+                            <span class="input-label">Message</span>
+                            <textarea cols="30" rows="10" name="message" id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="form__footer">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contactForm');
+            const firstNameInput = document.getElementById('firstName');
+            const lastNameInput = document.getElementById('lastName');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            // Event listener for form submission
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+                // TODO: Add logic for form submission and display hovering notification
+                alert('Form submitted!');
+                
+                // Clear form inputs after submission
+                firstNameInput.value = '';
+                lastNameInput.value = '';
+                emailInput.value = '';
+                messageInput.value = '';
+            });
+        });
+    </script>
+
+    <div class="page-loader active">
+        <div>
+            <img src="./img/logo.png">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pageLoader = document.querySelector('.page-loader');
+            const request = (secs) => new Promise(resolve => setTimeout(resolve, secs));
+
+            async function removePageLoader() {
+                await request(300)
+                pageLoader.classList.remove('active')
+            }
+            removePageLoader();
+        })
+    </script>
+</body>
+
+</html>

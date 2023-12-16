@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <title>Gallery</title>
+</head>
+
+<body>
+    <main>
+        <nav class="navbar max-width">
+            <div>
+                <div class="navbar__logo">
+                    <img src="./img/logo.png" alt="website logo">
+                </div>
+                <ul class="navbar__links">
+                    <li class="navbar__link">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./about.html">About</a>
+                    </li>
+                    <li class="navbar__link active">
+                        <a href="./gallery.html">Gallery</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./blog.html">Blog</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar__searchbar">
+                <div class="searchbar__input">
+                    <input type="text" placeholder="Search...">
+                    <img src="./img/search-icon.svg" alt="search icon">
+                </div>
+                <button class="searchbar__btn">
+                    Search
+                </button>
+            </div>
+        </nav>
+        <div class="gallery__content max-width">
+            <h1>Gallery</h1>
+            <div class="gallery__images">
+                <img src="./img/g1.jpg" alt="gallery image">
+                <img src="./img/g2.jpg" alt="gallery image">
+                <img src="./img/g3.jpg" alt="gallery image">
+                <img src="./img/g4.jpg" alt="gallery image">
+                <img src="./img/g5.jpg" alt="gallery image">
+                <img src="./img/g6.jpg" alt="gallery image">
+                <img src="./img/g7.jpg" alt="gallery image">
+                <img src="./img/g8.jpg" alt="gallery image">
+                <img src="./img/g9.jpg" alt="gallery image">
+                <img src="./img/g10.jpg" alt="gallery image">
+                <img src="./img/g11.jpg" alt="gallery image">
+                <img src="./img/g12.jpg" alt="gallery image">
+                <img src="./img/g13.jpeg" alt="gallery image">
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.querySelector('.searchbar__input input');
+            const searchButton = document.querySelector('.searchbar__btn');
+            const searchResults = document.getElementById('searchResults');
+
+            // Function to perform search
+            function performSearch() {
+                // Get the search input value
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                // Redirect based on search term
+                switch (searchTerm) {
+                    case 'home':
+                        window.location.href = './index.html';
+                        break;
+                    case 'about':
+                        window.location.href = './about.html';
+                        break;
+                    case 'gallery':
+                        window.location.href = './gallery.html';
+                        break;
+                    case 'blog':
+                        window.location.href = './blog.html';
+                        break;
+                    case 'contact':
+                        window.location.href = './contact.html';
+                        break;
+                    case 'facebook':
+                    case 'fb':
+                        window.location.href = 'https://www.facebook.com/dryn.manabat.9';
+                        break;
+                    case 'instagram':
+                    case 'insta':
+                        window.location.href = 'https://instagram.com/cloovvveeerr?igshid=NGVhN2U2NjQ0Yg==';
+                        break;
+                    case 'twitter':
+                    case 'x':
+                        window.location.href = 'https://x.com/cloovvveeerr?t=ZhFD_PQ17trS8VbDJC--HA&s=07';
+                        break;
+                    default:
+                        // TODO: Implement search logic or handle other cases
+                        displayResults("No matching page found for: " + searchTerm);
+                        break;
+                }
+            }
+
+            // Function to display search results
+            function displayResults(results) {
+                // Display results
+                searchResults.innerHTML = results;
+            }
+
+            // Event listener for search button click
+            searchButton.addEventListener('click', performSearch);
+
+            // Event listener for pressing Enter key in the search input
+            searchInput.addEventListener('keyup', function (event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+
+    <div class="page-loader active">
+        <div>
+            <img src="./img/logo.png">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pageLoader = document.querySelector('.page-loader');
+            const request = (secs) => new Promise(resolve => setTimeout(resolve, secs));
+
+            async function removePageLoader() {
+                await request(300)
+                pageLoader.classList.remove('active')
+            }
+            removePageLoader();
+        })
+    </script>
+</body>
+
+</html>
